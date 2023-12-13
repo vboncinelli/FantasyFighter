@@ -2,7 +2,7 @@
 {
     public class Goblin : Character, ICanAttack, ICanDefend
     {
-        public Goblin(string name, int health, int attackPoints, int defensePoints) : base(name, health, attackPoints, defensePoints)
+        public Goblin(string name) : base(name, health: 30, attackPoints: 3, defensePoints: 2)
         {
 
         }

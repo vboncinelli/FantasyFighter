@@ -2,11 +2,11 @@
 {
     public class Hero : Character, ICanDefend, ICanAttack
     {
-        public Roles Role { get; set; } = Roles.Warrior;
+        public Roles Role { get; private set; } = Roles.Warrior;
         
-        public Hero(string name, int health, int attackPoints, int defensePoints) : base(name, health, attackPoints, defensePoints)
+        public Hero(string name, Roles role) : base(name, health: 100, attackPoints: 10, defensePoints: 10)
         {
-
+            this.Role = role;
         }
 
         public void Defend()

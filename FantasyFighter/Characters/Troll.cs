@@ -2,7 +2,7 @@
 {
     public class Troll : Character, ICanDefend, ICanAttack
     {
-        public Troll(string name, int health, int attackPoints, int defensePoints) : base(name, health, attackPoints, defensePoints)
+        public Troll(string name) : base(name, health: 50, attackPoints: 8, defensePoints: 10)
         {
         }
 

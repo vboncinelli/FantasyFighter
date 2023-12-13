@@ -2,8 +2,9 @@
 {
     public class Slime : Character, ICanDefend
     {
-        public Slime(string name, int health, int attackPoints, int defensePoints) : base(name, health, attackPoints, defensePoints)
+        public Slime(string name) : base(name, health: 8, attackPoints:0, defensePoints: 2)
         {
+
         }
 
         public void Defend()

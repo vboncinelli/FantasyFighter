@@ -1,8 +1,8 @@
 ﻿namespace FantasyFighter
 {
-    public class RatKing : Character, ICanAttack, ICanDefend
+    public class Dragon : Character, ICanAttack, ICanDefend
     {
-        public RatKing(string name, int health, int attackPoints, int defensePoints) : base(name, health, attackPoints, defensePoints)
+        public Dragon(string name) : base(name, health: 100, attackPoints: 20, defensePoints: 15)
         {
         }
 
