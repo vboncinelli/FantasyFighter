@@ -7,7 +7,7 @@
 
         }
 
-        public void Defend()
+        public int Defend()
         {
             throw new NotImplementedException();
         }

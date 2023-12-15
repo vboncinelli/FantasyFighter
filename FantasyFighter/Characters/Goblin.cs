@@ -7,12 +7,12 @@
 
         }
 
-        public void Attack()
+        public int Attack()
         {
             throw new NotImplementedException();
         }
 
-        public void Defend()
+        public int Defend()
         {
             throw new NotImplementedException();
         }

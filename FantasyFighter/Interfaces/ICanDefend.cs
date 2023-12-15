@@ -2,6 +2,6 @@
 {
     public interface ICanDefend
     {
-        void Defend();
+        int Defend();
     }
 }
