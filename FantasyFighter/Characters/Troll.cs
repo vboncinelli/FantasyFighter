@@ -1,6 +1,6 @@
-﻿namespace FantasyFighter
+﻿namespace FantasyFighter.Characters
 {
-    public class Troll : Character, ICanDefend, ICanAttack
+    public class Troll : Enemy, ICanDefend, ICanAttack
     {
         public Troll(string name) : base(name, health: 50, attackPoints: 8, defensePoints: 10)
         {
