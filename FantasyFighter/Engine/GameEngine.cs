@@ -1,27 +1,28 @@
-﻿
-
+﻿using FantasyFighter.Characters;
 
 namespace FantasyFighter
 {
-    public class Game
+    public class GameEngine
     {
-        private List<Character> _enemies;
+        private List<Enemy>? _enemies;
+
+        private Enemy? _currentEnemy; 
 
         private Hero? _player;
 
         public bool IsGameRunning { get; private set; }
 
-        public Game()
+        public GameEngine()
         {
-            this._enemies = new List<Character>()
+            this._enemies = new List<Enemy>()
             {
                 new Dragon("Red Dragon"),
                 new Dragon("Golden Dragon"),
                 new Goblin("Goblin #1"),
                 new Goblin("Goblin #2"),
-                new Troll("Paolo"),
-                new Slime("Slime #1"),
-                new Slime("Slime #2")
+                new Troll("Trollone"),
+                new Slime("Slime viscido"),
+                new Slime("Slime ruvido")
             };
         }
 
@@ -47,16 +48,20 @@ namespace FantasyFighter
             // costruire il nostro hero
             this._player = new Hero(playerName, playerRole);
 
+            // stampa le informazioni relative al personaggio
             this.DisplayNewHero();
-
-            // iniziano i turni
-            this.BeginNewTurn();
         }
+
+        public void NextTurn()
+        {
+            throw new NotImplementedException();
+        }
+
 
         private void DisplayNewHero()
         {
             Console.WriteLine($"\n\nWelcome {this._player?.Name}, your new adventure is about to start");
-            Console.WriteLine($"As a {this._player?.Role}, you'll have to defeat all your enemies and survive...");
+            Console.WriteLine($"As a {this._player?.Role}, you'll have to defeat all your enemies and survive. Are you up for this task?");
             Console.WriteLine(@$"These are your stats: 
 Health: {this._player?.Health}
 Attack points: {this._player?.AttackPoints}
@@ -89,7 +94,7 @@ Defense points: {this._player?.DefensePoints}");
             {
                 Console.WriteLine("Now choose your role\n");
 
-                // Per il simbolo @ si veda
+                // Per il simbolo @ in una stringa (verbatim string) si veda
                 // https://learn.microsoft.com/it-it/dotnet/csharp/language-reference/tokens/verbatim
                 var roles = @"
 [1] Warrior
@@ -119,12 +124,7 @@ Defense points: {this._player?.DefensePoints}");
 
         private void DisplayWelcomeMessage()
         {
-            Console.WriteLine("Messaggio di benvuto....");
-        }
-
-        private void BeginNewTurn()
-        {
-            var inflictedDamage = this._player?.Attack();
+            Console.WriteLine("Messaggio di benvuto....\n");
         }
     }
 }
