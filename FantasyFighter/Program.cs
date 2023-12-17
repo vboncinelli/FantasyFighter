@@ -20,4 +20,12 @@ namespace FantasyFighter
             }
         }
     }
+
+    class TemperatureMonitor
+    {
+        public void OnTemperatureChanged(int newTemperature)
+        {
+            Console.WriteLine($"Allarme! Temperatura elevata rilevata: {newTemperature} gradi.");
+        }
+    }
 }
