@@ -1,4 +1,5 @@
-﻿using FantasyFighter.Interfaces;
+﻿using FantasyFighter.Engine.Engine;
+using FantasyFighter.Interfaces;
 using FantasyFighter.Items;
 
 namespace FantasyFighter.Characters
@@ -45,13 +46,30 @@ namespace FantasyFighter.Characters
 
         public int Defend()
         {
-            var rnd = new Random().NextDouble();
-            return (int)(this.DefensePoints / rnd);
+            var luckyBonus = Dices.Roll();
+
+            var protectingGears = this.Inventory.Items.OfType<IDefence>();
+
+            int defenceBonus = 0;
+
+            if (protectingGears.Any())
+            {
+                foreach(var gear in protectingGears)
+                {
+                    defenceBonus += gear.DefenseBonus;
+                }
+            }
+
+            return this.DefencePoints + defenceBonus + luckyBonus;
         }
 
         public int Attack()
         {
-            return this.AttackPoints;
+            var luckyBonus = Dices.Roll();
+
+            int weaponBonus = this.Inventory.MainWeapon!.AttackBonus;
+
+            return this.AttackPoints + weaponBonus + luckyBonus;
         }
 
         public void Consume<T>() where T : Consumable, new()
@@ -63,8 +81,13 @@ namespace FantasyFighter.Characters
             else
             {
                 if (item is IHeal healingItem)
+                {
                     this.Health += healingItem.HealingPoints;
+                    
+                    Console.WriteLine($"Your health has been increased by {healingItem.HealingPoints} points. Now your health is {this.Health} points");
+                }
 
+                // remove the item from the inventory
                 this.Inventory.Items.Remove(item);
             }
         }

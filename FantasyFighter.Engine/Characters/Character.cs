@@ -8,19 +8,19 @@
 
         public int AttackPoints { get; set; }
 
-        public int DefensePoints { get; set; }
+        public int DefencePoints { get; set; }
 
         public Character(string name, int health, int attackPoints, int defensePoints)
         {
             Name = name;
             Health = health;
             AttackPoints = attackPoints;
-            DefensePoints = defensePoints;
+            DefencePoints = defensePoints;
         }
 
         public override string ToString()
         {
-            return $"Name: {this.Name} - Health: {this.Health} - Attack Points: {this.AttackPoints} - Defense Points: {this.DefensePoints}";
+            return $"Name: {this.Name} - Health: {this.Health} - Attack Points: {this.AttackPoints} - Defense Points: {this.DefencePoints}";
         }
     }
 }

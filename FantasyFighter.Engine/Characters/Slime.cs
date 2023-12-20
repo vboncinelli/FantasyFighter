@@ -8,10 +8,5 @@ namespace FantasyFighter.Characters
         {
 
         }
-
-        public int Defend()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

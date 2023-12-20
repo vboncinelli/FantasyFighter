@@ -17,6 +17,8 @@ namespace FantasyFighter
             hero.Consume<Potion>();
             hero.Consume<Potion>();
             hero.Consume<Food>();
+            var damages = hero.Attack();
+            var defense = hero.Defend();
 
             //var game = new GameEngine();
 

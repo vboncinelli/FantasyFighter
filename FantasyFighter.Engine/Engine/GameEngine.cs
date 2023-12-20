@@ -54,11 +54,12 @@ namespace FantasyFighter.Engine
 
         public void NextTurn()
         {
+            // TODO: Implement the turn-based game engine following these guidelines:
+
             // check if the game is already running.
             // if not, there shouldn't be any turn, right?
 
-            // who should check if the condition for ending
-            // the game have already been met? 
+            // check if the condition for ending the game have already been met
 
             // if the hero isn't currently facing any enemy, 
             // pick a random enemy from the remainings in the list
@@ -66,7 +67,7 @@ namespace FantasyFighter.Engine
                 this.PickupNewEnemy();
 
             // Let the player inspect the inventory to:
-            // 1. use any item
+            // 1. use any consumable item
             // 2. switch weapons
             // 3. something else?
 
@@ -74,7 +75,6 @@ namespace FantasyFighter.Engine
             // Calculate the player's damage points based on:
             // - initial value of attack points at instance creation
             // - Any modifier coming from the role
-            // - Any modifier coming from 
             // - Any modifier coming from consumable item
             // - Any modifier coming from the primary weapon
             // - Something else?
@@ -104,8 +104,6 @@ namespace FantasyFighter.Engine
             // Handle this scenario and end the game properly.
         }
 
-        
-
         private void PickupNewEnemy()
         {
             var rnd = new Random().Next(this._enemies.Count);
@@ -116,10 +114,7 @@ namespace FantasyFighter.Engine
         {
             Console.WriteLine($"\n\nWelcome {this._player?.Name}, your new adventure is about to start");
             Console.WriteLine($"As a {this._player?.Role}, you'll have to defeat all your enemies and survive. Are you up for this task?");
-            Console.WriteLine(@$"These are your stats: 
-Health: {this._player?.Health}
-Attack points: {this._player?.AttackPoints}
-Defense points: {this._player?.DefensePoints}");
+            Console.WriteLine($"These are your stats:\nHealth: {this._player?.Health}\nAttack points: {this._player?.AttackPoints}\nDefence points: {this._player?.DefencePoints}");
         }
 
         private string GetPlayerName()
@@ -148,13 +143,7 @@ Defense points: {this._player?.DefensePoints}");
             {
                 Console.WriteLine("Now choose your role\n");
 
-                // Per il simbolo @ in una stringa (verbatim string) si veda
-                // https://learn.microsoft.com/it-it/dotnet/csharp/language-reference/tokens/verbatim
-                var roles = @"
-[1] Warrior
-[2] Cleric,
-[3] Rogue,
-[4] Mage";
+                var roles = "[1] Warrior\n[2] Cleric\n[3] Rogue\n[4] Mage";
 
                 Console.WriteLine(roles);
 
