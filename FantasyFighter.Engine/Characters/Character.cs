@@ -1,4 +1,6 @@
-﻿namespace FantasyFighter.Characters
+﻿using FantasyFighter.Engine.Engine;
+
+namespace FantasyFighter.Characters
 {
     public abstract class Character
     {

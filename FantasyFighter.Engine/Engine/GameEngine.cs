@@ -1,4 +1,5 @@
 ﻿using FantasyFighter.Characters;
+using FantasyFighter.Interfaces;
 
 namespace FantasyFighter.Engine
 {
@@ -89,6 +90,15 @@ namespace FantasyFighter.Engine
             // If the enemy is still alive,
             // the next step should be to calculate the enemy attack points,
             // same as before. 
+
+            // IMPORTANT: if the enemy cannot attack, skips its turn.
+            // Hint: how to check if the enemy can attack?
+            
+            //if (this._currentEnemy is ICanAttack)
+            //{
+            //    // attack, otherwise skip
+            //}
+
             // Once you have calculated the hero's defense points
             // (taking into account all the available modifiers),
             // you can calculate the damage points taken by the hero and adjust the hero's health.
