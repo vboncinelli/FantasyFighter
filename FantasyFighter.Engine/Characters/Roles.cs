@@ -6,6 +6,6 @@
         Warrior,
         Cleric,
         Rogue,
-        Mage
+        Wizard
     }
 }

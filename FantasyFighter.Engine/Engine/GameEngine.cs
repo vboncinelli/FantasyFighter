@@ -1,4 +1,5 @@
 ﻿using FantasyFighter.Characters;
+using FantasyFighter.Engine.Engine;
 using FantasyFighter.Interfaces;
 
 namespace FantasyFighter.Engine
@@ -37,8 +38,8 @@ namespace FantasyFighter.Engine
 
             this.IsGameRunning = true;
 
-            // say 'h' to the player
-            this.DisplayWelcomeMessage();
+            // Show the intro text by reading a file
+            TextEngine.DisplayTextFromFile("WelcomeMessage");
 
             // ask the player for a name
             var playerName = this.GetPlayerName();
@@ -153,7 +154,7 @@ namespace FantasyFighter.Engine
             {
                 Console.WriteLine("Now choose your role\n");
 
-                var roles = "[1] Warrior\n[2] Cleric\n[3] Rogue\n[4] Mage";
+                var roles = "\n[1] Warrior\n[2] Cleric\n[3] Rogue\n[4] Wizard";
 
                 Console.WriteLine(roles);
 
@@ -164,7 +165,7 @@ namespace FantasyFighter.Engine
                     "1" => Roles.Warrior,
                     "2" => Roles.Cleric,
                     "3" => Roles.Rogue,
-                    "4" => Roles.Mage,
+                    "4" => Roles.Wizard,
                     _ => Roles.Undefined
                 };
 
@@ -173,11 +174,6 @@ namespace FantasyFighter.Engine
             } while (role == Roles.Undefined);
 
             return role;
-        }
-
-        private void DisplayWelcomeMessage()
-        {
-            Console.WriteLine("Messaggio di benvuto....\n");
         }
     }
 }

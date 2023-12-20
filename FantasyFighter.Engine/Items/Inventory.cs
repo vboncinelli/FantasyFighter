@@ -17,10 +17,10 @@
             this.SecondaryWeapon = tmp;
         }
 
-        internal void SetupForCleric()
-        {
-            throw new NotImplementedException();
-        }
+        // TODO: Experiment with the inventory
+        // Try to add new kinds of items, with different effects on
+        // health, attack and defence.
+
 
         internal void SetupForWarrior()
         {
@@ -31,10 +31,17 @@
             this.Items.Add(new Food());
             this.Items.Add(new Food());
             this.Items.Add(new Food());
-
         }
 
-        internal void SetupForMage()
+        // TODO: Provide the implementations for 
+        // the different classes (cleric, m
+
+        internal void SetupForCleric()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void SetupForWizard()
         {
             throw new NotImplementedException();
         }

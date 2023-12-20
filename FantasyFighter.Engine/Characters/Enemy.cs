@@ -8,6 +8,8 @@ namespace FantasyFighter.Characters
         {
         }
 
+        // TODO: What should we do if we wanted to provide
+        // different implementations for different enemies?
         public virtual int Attack()
         {
             var luckyBonus = Dices.Roll();
@@ -17,9 +19,10 @@ namespace FantasyFighter.Characters
 
         public virtual int Defend()
         {
-            var luckyBonus = Dices.Roll();
-
-            return this.DefencePoints + luckyBonus;
+            // TODO: Implement the logic
+            // TODO: What should we do if we wanted to provide
+            // different implementations for different enemies?
+            throw new NotImplementedException();
         }
     }
 }

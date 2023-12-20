@@ -4,8 +4,13 @@ using FantasyFighter.Items;
 
 namespace FantasyFighter.Characters
 {
-    public class Hero : Character, ICanDefend, ICanAttack
+    public class Hero : Character
     {
+
+        // TODO: Is this the only way to go?
+        // Try to use sub classes instead of roles to define
+        // different types of hero (warrior, wizard, ecc.)
+        
         public Roles Role { get; private set; } = Roles.Warrior;
 
         public Inventory Inventory { get; private set; } = new Inventory();
@@ -14,7 +19,12 @@ namespace FantasyFighter.Characters
         {
             this.Role = role;
 
-            // classic switch statement
+            // TODO: Boosters based on the role
+            // Try to modify the initial stats of the hero
+            // based on the role. For example, a warrior could
+            // have more attack points than a cleric, but the latter
+            // more health points.
+            
             switch (this.Role)
             {
                 case Roles.Warrior:
@@ -32,9 +42,9 @@ namespace FantasyFighter.Characters
                         this.Inventory.SetupForRogue();
                         break;
                     }
-                case Roles.Mage:
+                case Roles.Wizard:
                     {
-                        this.Inventory.SetupForMage();
+                        this.Inventory.SetupForWizard();
                         break;
                     }
                 case Roles.Undefined:
@@ -63,6 +73,12 @@ namespace FantasyFighter.Characters
             return this.DefencePoints + defenceBonus + luckyBonus;
         }
 
+        // TODO: Weapons deal different damages to different monster?
+        // When calculating the damage points taken by an enemy, you could take into account the type of enemy.
+        // For instance, some mosters could be weaker or more resistant against some type of weapons.
+        // A dragon could take less damages from swords and knifes, and suffer more damages from magical attacks.
+        // In this case, you might need to modify the method to accept an enemy as parameter. Then you need to check
+        // what kind of enemy you are facing (is it a Goblin or a Dragon?) to determine the effects of the main weapon.
         public int Attack()
         {
             var luckyBonus = Dices.Roll();
@@ -80,6 +96,7 @@ namespace FantasyFighter.Characters
                 Console.WriteLine("The item you are looking for is not in the Inventory");
             else
             {
+                // Check if the item implements the IHeal interface
                 if (item is IHeal healingItem)
                 {
                     this.Health += healingItem.HealingPoints;
