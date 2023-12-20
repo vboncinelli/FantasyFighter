@@ -1,4 +1,4 @@
-﻿namespace FantasyFighter
+﻿namespace FantasyFighter.Interfaces
 {
     public interface ICanDefend
     {

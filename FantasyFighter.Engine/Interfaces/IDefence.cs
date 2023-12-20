@@ -2,5 +2,6 @@
 {
     public interface IDefence
     {
+        int DefenseBonus { get; }
     }
 }

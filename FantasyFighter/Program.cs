@@ -1,4 +1,7 @@
-﻿using Figgle;
+﻿using FantasyFighter.Characters;
+using FantasyFighter.Engine;
+using FantasyFighter.Items;
+using Figgle;
 
 namespace FantasyFighter
 {
@@ -10,22 +13,19 @@ namespace FantasyFighter
 
             Console.WriteLine(FiggleFonts.Epic.Render("Fantasy Fighter"));
 
-            var game = new GameEngine();
+            var hero = new Hero("Pollah", Roles.Warrior);
+            hero.Consume<Potion>();
+            hero.Consume<Potion>();
+            hero.Consume<Food>();
 
-            game.StartNewGame();
+            //var game = new GameEngine();
 
-            while (game.IsGameRunning)
-            {
-                game.NextTurn();
-            }
-        }
-    }
+            //game.StartNewGame();
 
-    class TemperatureMonitor
-    {
-        public void OnTemperatureChanged(int newTemperature)
-        {
-            Console.WriteLine($"Allarme! Temperatura elevata rilevata: {newTemperature} gradi.");
+            //while (game.IsGameRunning)
+            //{
+            //    game.NextTurn();
+            //}
         }
     }
 }

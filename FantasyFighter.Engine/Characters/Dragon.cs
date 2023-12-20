@@ -1,4 +1,6 @@
-﻿namespace FantasyFighter.Characters
+﻿using FantasyFighter.Interfaces;
+
+namespace FantasyFighter.Characters
 {
     public class Dragon : Enemy, ICanAttack, ICanDefend
     {

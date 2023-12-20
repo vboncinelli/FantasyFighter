@@ -1,6 +1,6 @@
 ﻿using FantasyFighter.Characters;
 
-namespace FantasyFighter
+namespace FantasyFighter.Engine
 {
     public class GameEngine
     {
@@ -103,6 +103,8 @@ namespace FantasyFighter
             // if this was the last enemy in the list, the hero has won.
             // Handle this scenario and end the game properly.
         }
+
+        
 
         private void PickupNewEnemy()
         {

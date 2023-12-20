@@ -2,6 +2,6 @@
 {
     public class Wand : Weapon
     {
-        public override int AttackBonus { get; set; }
+        public override int AttackBonus => 15;
     }
 }

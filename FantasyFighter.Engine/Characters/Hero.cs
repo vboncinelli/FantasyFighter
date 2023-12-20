@@ -1,7 +1,7 @@
-﻿using FantasyFighter.Characters;
+﻿using FantasyFighter.Interfaces;
 using FantasyFighter.Items;
 
-namespace FantasyFighter
+namespace FantasyFighter.Characters
 {
     public class Hero : Character, ICanDefend, ICanAttack
     {
@@ -51,8 +51,22 @@ namespace FantasyFighter
 
         public int Attack()
         {
-            var rnd = new Random().NextDouble();
-            return (int)(this.AttackPoints / rnd);
+            return this.AttackPoints;
+        }
+
+        public void Consume<T>() where T : Consumable, new()
+        {
+            var item = this.Inventory.Items.OfType<T>().FirstOrDefault();
+
+            if (item is null)
+                Console.WriteLine("The item you are looking for is not in the Inventory");
+            else
+            {
+                if (item is IHeal healingItem)
+                    this.Health += healingItem.HealingPoints;
+
+                this.Inventory.Items.Remove(item);
+            }
         }
     }
 }

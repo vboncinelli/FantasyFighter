@@ -11,9 +11,9 @@
         public void SwitchWeapons()
         {
             var tmp = this.MainWeapon;
-            
+
             this.MainWeapon = this.SecondaryWeapon;
-            
+
             this.SecondaryWeapon = tmp;
         }
 
@@ -27,8 +27,6 @@
             this.MainWeapon = new Sword();
             this.SecondaryWeapon = new Knife();
 
-            this.Items.Add(this.MainWeapon);
-            this.Items.Add(this.SecondaryWeapon);
             this.Items.Add(new Potion());
             this.Items.Add(new Food());
             this.Items.Add(new Food());
