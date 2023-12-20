@@ -38,7 +38,9 @@ namespace FantasyFighter.Engine
 
             this.IsGameRunning = true;
 
-            // Show the intro text by reading a file
+            // TODO: Check this method to see the basic way to read a text from a file
+            // For long messages to display on screen, you can use this approach to keep your code cleaner...
+            // NOTE: In a real application, you would read the messages from a database...
             TextEngine.DisplayTextFromFile("WelcomeMessage");
 
             // ask the player for a name
@@ -121,9 +123,12 @@ namespace FantasyFighter.Engine
             this._currentEnemy = this._enemies[rnd];
         }
 
+        // TODO: Check the texts
+        // So far, the texts are not well formatted... try to beautify them a little bit :)
+
         private void DisplayNewHero()
         {
-            Console.WriteLine($"\n\nWelcome {this._player?.Name}, your new adventure is about to start");
+            Console.WriteLine($"\nWelcome {this._player?.Name}, your new adventure is about to start");
             Console.WriteLine($"As a {this._player?.Role}, you'll have to defeat all your enemies and survive. Are you up for this task?");
             Console.WriteLine($"These are your stats:\nHealth: {this._player?.Health}\nAttack points: {this._player?.AttackPoints}\nDefence points: {this._player?.DefencePoints}");
         }
